@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12070d">
+<title>Sunday — Just Us</title>
+<style>
+:root{--bg:#12070d;--rose:#ff6f91;--pink:#ffb6c8;--cream:#fff5f6;--muted:#c9aeb7;--glass:rgba(255,255,255,.075);--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 50% 0,#3a101f 0,#1c0a12 38%,#090407 100%);color:var(--cream)}
+body{overflow-x:hidden}.wrap{min-height:100svh;display:grid;place-items:center;padding:22px}.card{width:min(430px,100%);min-height:720px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));box-shadow:0 30px 90px rgba(0,0,0,.55);backdrop-filter:blur(18px);padding:34px 25px}
+.glow{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(255,91,132,.22),transparent 68%);filter:blur(12px);top:-100px;right:-100px}.heart{font-size:24px;color:var(--rose);text-shadow:0 0 25px rgba(255,91,132,.7);margin-bottom:35px}
+.screen{display:none;min-height:640px;flex-direction:column;justify-content:center;position:relative;z-index:2}.screen.active{display:flex}
+.kicker{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--pink);opacity:.8}.title{font-family:"Iowan Old Style",Georgia,"Times New Roman",serif;font-size:clamp(44px,12vw,66px);letter-spacing:-.035em;line-height:.96;font-weight:400;margin:16px 0}.sub{color:var(--muted);font-size:15px;line-height:1.7;max-width:330px}.btn{border:0;border-radius:999px;padding:14px 22px;font-weight:700;font-size:14px;cursor:pointer;color:#220811;background:linear-gradient(135deg,#ffcad7,#ff6f91);box-shadow:0 12px 35px rgba(255,91,132,.24);transition:.25s;min-width:150px}.btn:hover{transform:translateY(-2px)}.ghost{background:transparent;color:var(--pink);border:1px solid var(--line);box-shadow:none}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.panel{margin-top:28px;padding:20px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.045)}.row{display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13px}.row:last-child{border-bottom:0}.label{color:#9f858d}.value{color:#fff;text-align:right}
+.quote{font-family:Georgia,serif;font-size:27px;line-height:1.35;margin:25px 0}.tiny{font-size:12px;color:#9f858d;line-height:1.7}
+input{width:100%;margin-top:16px;padding:15px 16px;border-radius:15px;border:1px solid var(--line);background:rgba(0,0,0,.18);color:white;outline:none}.result{margin-top:18px;color:var(--pink);font-size:14px;min-height:22px}
+.pulse{animation:pulse 2.2s infinite}@keyframes pulse{50%{transform:scale(1.06);opacity:.8}}
+.float{position:absolute;inset:0;pointer-events:none;overflow:hidden}.float i{position:absolute;color:rgba(255,154,178,.2);font-style:normal;animation:rise linear infinite}.float i:nth-child(1){left:8%;bottom:-10%;font-size:18px;animation-duration:9s}.float i:nth-child(2){left:75%;bottom:-10%;font-size:12px;animation-duration:12s}.float i:nth-child(3){left:45%;bottom:-10%;font-size:20px;animation-duration:10s}@keyframes rise{to{transform:translateY(-850px) rotate(20deg);opacity:0}}
+.success{font-size:58px;margin-bottom:12px}.center{text-align:center;align-items:center}.nope{position:relative}.yesBtn{position:relative;overflow:hidden}
+.yesBtn::after{content:"";position:absolute;inset:-40%;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.45) 48%,transparent 61%);transform:translateX(-80%) rotate(8deg);transition:transform .8s ease}
+.yesBtn:hover::after{transform:translateX(80%) rotate(8deg)}
+.yesBtn:active{transform:scale(.96)}
+.yesBtn.pop{animation:yesPop .55s ease}
+@keyframes yesPop{0%{transform:scale(1)}45%{transform:scale(1.1) rotate(-2deg)}70%{transform:scale(.98) rotate(1deg)}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+<div class="wrap"><main class="card">
+<div class="glow"></div><div class="float"><i>♥</i><i>♡</i><i>♥</i></div>
+
+<section class="screen active center" id="s1">
+<div class="heart pulse">♥</div>
+<div class="kicker">a tiny project, made for you</div>
+<h1 class="title">Hey,<br>trouble. ♥</h1>
+<p class="sub">I made you a little something. Don't judge the effort. 😌</p>
+<button class="btn" onclick="go(2)">Open it →</button>
+</section>
+
+<section class="screen" id="s2">
+<div class="kicker">sunday.exe</div>
+<h2 class="title">One little<br>mission.</h2>
+<div class="panel">
+<div class="row"><span class="label">Target</span><span class="value">You ❤️</span></div>
+<div class="row"><span class="label">Co-pilot</span><span class="value">Me, obviously.</span></div>
+<div class="row"><span class="label">Objective</span><span class="value">Steal your Sunday</span></div>
+<div class="row"><span class="label">Risk</span><span class="value">Too much laughing</span></div>
+</div>
+<button class="btn" style="margin-top:24px" onclick="go(3)">Okay, continue 😌</button>
+</section>
+
+<section class="screen" id="s3">
+<div class="kicker">diagnostics complete</div>
+<h2 class="title">You are<br>the problem. ❤️</h2>
+<div class="quote">Too cute.<br>Too annoying.<br>Still my favourite.</div>
+<p class="sub">No bugs found. Just one very distracting girl.</p>
+<button class="btn" style="margin-top:24px" onclick="go(4)">Fine, show me →</button>
+</section>
+
+<section class="screen" id="s4">
+<div class="kicker">classified invitation</div>
+<h2 class="title">Sunday.<br>Just us. ❤️</h2>
+<p class="sub">A few hours. Good food. Bad jokes. You and me.</p>
+<div class="panel">
+<div class="row"><span class="label">Where</span><span class="value">Classified 🔒</span></div>
+<div class="row"><span class="label">Dress code</span><span class="value">Look cute. As usual.</span></div>
+<div class="row"><span class="label">Company</span><span class="value">Unfortunately, me.</span></div>
+</div>
+<div class="actions">
+<button class="btn yesBtn" id="yesBtn" onclick="accept()">Yes, obviously ❤️</button>
+<button class="btn ghost nope" id="noBtn" onclick="nope()">No 😏</button>
+</div>
+<div class="result" id="result"></div>
+</section>
+
+<section class="screen center" id="s5">
+<div class="success pulse">♥</div>
+<div class="kicker">mission accepted</div>
+<h2 class="title">Sunday<br>is ours.</h2>
+<p class="sub">I'll handle the plan. You just show up with that smile.</p>
+<div class="panel"><div class="tiny">P.S. — You don't get to cancel because you already clicked the button. Technicality. 😂</div></div>
+</section>
+</main></div>
+<script>
+function go(n){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById('s'+n).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
+let tries=0;
+function nope(){tries++;const b=document.getElementById('noBtn');const r=document.getElementById('result');if(tries<4){b.style.transform=`translate(${(Math.random()*120-60)}px,${(Math.random()*80-40)}px)`;r.textContent=['Nice try. 😌','Nope, that button is shy.','You really want to say no? 😂'][tries-1]}else{r.textContent='Okay okay. I will accept your terms: you owe me one Sunday. ❤️';b.style.transform='none'}}
+function accept(){
+  const b=document.getElementById('yesBtn');
+  b.classList.remove('pop');
+  void b.offsetWidth;
+  b.classList.add('pop');
+  b.textContent='Wait... really? 👀';
+  setTimeout(()=>{ b.textContent='Okay, you said YES. ❤️'; go(5); },650);
+}
+</script>
+</body></html>
